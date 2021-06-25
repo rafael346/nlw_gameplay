@@ -25,17 +25,9 @@ export function AppointmentCreate() {
     setOpenGuildsModal(true);
   }
 
-  function handleCloseGuilds() {
-    setOpenGuildsModal(false);
-  }
-
   function handleGuildSelect(guildSelect: GuildProps) {
     setGuild(guildSelect);
     setOpenGuildsModal(false);
-  }
-
-  function handleCategorySelect(categoryId: string) {
-    setCategory(categoryId);
   }
 
   return (
@@ -43,9 +35,8 @@ export function AppointmentCreate() {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
-      <Background>
-        <ScrollView>
-
+      <ScrollView>
+        <Background>
           <Header
             title='Agendar Partida'
           />
@@ -54,7 +45,7 @@ export function AppointmentCreate() {
           </Text>
           <CategorySelect
             hasCheckBox
-            setCategory={handleCategorySelect}
+            setCategory={setCategory}
             categorySelected={category}
           />
           <View style={styles.form}>
@@ -83,7 +74,7 @@ export function AppointmentCreate() {
             </RectButton>
             <View style={styles.field}>
               <View>
-                <Text style={[styles.label, { marginBottom: 12 }]}>Dia e Mês</Text>
+                <Text style={styles.label}>Dia e Mês</Text>
                 <View style={styles.column}>
                   <SmallInput maxLength={2} />
                   <Text style={styles.divider}>
@@ -93,7 +84,7 @@ export function AppointmentCreate() {
                 </View>
               </View>
               <View>
-                <Text style={[styles.label, { marginBottom: 12 }]}>Horário</Text>
+                <Text style={styles.label}>Horário</Text>
                 <View style={styles.column}>
                   <SmallInput maxLength={2} />
                   <Text style={styles.divider}>
@@ -119,10 +110,9 @@ export function AppointmentCreate() {
               <Button title='Agendar' />
             </View>
           </View>
-
-        </ScrollView>
-      </Background>
-      <ModalView closeModal={handleCloseGuilds} visible={openGuildsModal}>
+        </Background>
+      </ScrollView>
+      <ModalView visible={openGuildsModal}>
         <Guilds handleGuildSelect={handleGuildSelect} />
       </ModalView>
     </KeyboardAvoidingView>

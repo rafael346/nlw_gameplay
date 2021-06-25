@@ -8,13 +8,13 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 24,
+    backgroundColor: 'red'
   },
   content: {
     flex: 1,
     justifyContent: 'space-between',
     flexDirection: 'row',
     alignItems: 'center',
-    marginLeft: 20,
   },
   type: {
     fontFamily: theme.fonts.title700,
@@ -26,5 +26,6 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.text400,
     color: theme.colors.highlight,
     fontSize: 13,
+    marginBottom: 12,
   },
 })
