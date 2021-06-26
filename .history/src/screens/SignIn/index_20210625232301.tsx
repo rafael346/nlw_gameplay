@@ -6,7 +6,7 @@ import {
   Alert,
   ActivityIndicator
 } from 'react-native'
-
+import { useNavigation } from '@react-navigation/native'
 import illustration from '../../assets/illustration.png'
 import { ButtonIcon } from '../../components/ButtonIcon'
 import { Background } from '../../components/Background'
@@ -49,11 +49,7 @@ export function SignIn() {
             Crie grupos para jogar seus games {'\n'}
             favoritos com seus amigos
           </Text>
-
-          {loading
-            ?
-            <ActivityIndicator color={theme.colors.primary} />
-            :
+          {loading ? <ActivityIndicator color={theme.colors.primary} /> :
             <ButtonIcon
               title='Entrar com Discord'
               onPress={handleSignIn}

@@ -3,23 +3,21 @@ import {
   View,
   Image,
   Text,
-  Alert,
-  ActivityIndicator
+  Alert
 } from 'react-native'
-
+import { useNavigation } from '@react-navigation/native'
 import illustration from '../../assets/illustration.png'
 import { ButtonIcon } from '../../components/ButtonIcon'
 import { Background } from '../../components/Background'
 import { useAuth } from '../../hooks/auth'
 
 import { styles } from './styles'
-import { theme } from '../../global/styles/theme'
 
 
 
 
 export function SignIn() {
-  const { loading, signIn } = useAuth();
+
 
   async function handleSignIn() {
     try {
@@ -28,6 +26,9 @@ export function SignIn() {
       Alert.alert(error)
     }
   }
+
+  const { user, signIn } = useAuth();
+
 
   return (
     <Background>
@@ -50,15 +51,11 @@ export function SignIn() {
             favoritos com seus amigos
           </Text>
 
-          {loading
-            ?
-            <ActivityIndicator color={theme.colors.primary} />
-            :
-            <ButtonIcon
-              title='Entrar com Discord'
-              onPress={handleSignIn}
-            />
-          }
+          <ButtonIcon
+            title='Entrar com Discord'
+            onPress={handleSignIn}
+          />
+
         </View>
       </View>
     </Background>

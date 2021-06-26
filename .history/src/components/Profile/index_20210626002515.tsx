@@ -20,7 +20,7 @@ export function Profile() {
           </Text>
         </View>
         <Text style={styles.message}>
-          Vamos Jogar?
+          Hoje é dia de Vitória
         </Text>
       </View>
 

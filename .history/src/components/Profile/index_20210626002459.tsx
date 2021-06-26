@@ -16,11 +16,11 @@ export function Profile() {
             Olá
           </Text>
           <Text style={styles.username}>
-            {user.firstName}
+            Rafael
           </Text>
         </View>
         <Text style={styles.message}>
-          Vamos Jogar?
+          Hoje é dia de Vitória
         </Text>
       </View>
 
